@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running JS</title>
+</head>
+<body>
+    <h1>Running JavaScript</h1>
+    <h2>
+        <li>
+            You can run JS on the browser devTools console.
+        </li>
+        <li>
+            In your html file create script tags, inside the script tags write the code you want to run. <br>
+            Note: The script tags should always be put before the closing body tag, 
+            the reason for this is that you will most likely be using elements of your html in your script,
+            and if the script runs before the elements get created the website will crash.
+        </li>
+        <li>
+            Create a .js file and give it's path to src="" in the script tag, the code written in the .js file will run when the html is loaded.
+        </li>
+        <li>
+            using node: in the console type node followed by the .js filename and this will run the JavaScript code in the file.
+        </li>
+
+    </h2>
+    <!-- Below is a way of running a JS file, by adding the code inside the <scritp></script> tags -->
+    <!-- <script>
+        console.log("hey");
+    </script> -->
+
+    <script src="./some.js"></script>
+</body>
+</html>
