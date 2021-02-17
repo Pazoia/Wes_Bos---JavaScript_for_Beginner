@@ -5,4 +5,4 @@ console.log(p);
 let age = 100;
 age = 200;
 
-console.log(age);
+console.log(age + p);
