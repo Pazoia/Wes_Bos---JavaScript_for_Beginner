@@ -1,3 +1,18 @@
 html {
     background: orange;
 }
+
+body {
+    margin: 25px;
+}
+
+.modules {
+    font-size: 30px;
+    background: white;
+    max-width: 750px;
+}
+.lessons {
+    line-height: 30pt;
+    font-size: 25px;
+    list-style: none;
+}
