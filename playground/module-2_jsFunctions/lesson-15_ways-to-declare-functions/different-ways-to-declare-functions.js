@@ -49,3 +49,14 @@ console.log("Ways to Declare Functions");
     
     const add = (a, b = 3) => a + b;
 */
+
+// Declaring an arrow function that will return an object
+/*
+    const makeBaby = (first, last) => {
+        const baby = {
+            name: `${first} ${last}`,
+            age: 0,
+        };
+        return baby;
+    };
+ */
