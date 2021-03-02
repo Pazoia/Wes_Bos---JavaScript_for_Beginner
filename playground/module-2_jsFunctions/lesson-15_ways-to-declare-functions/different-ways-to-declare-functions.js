@@ -79,16 +79,16 @@ console.log("Ways to Declare Functions");
 /* eslint-disable */
 // callback functions
     // click callback
-    const button = document.querySelector(".clickMe");
+    // const button = document.querySelector(".clickMe");
 
-    const sayHi = (paulo) => console.log("Hey Paulo, you clicked the button!!!");
+    // const sayHi = (paulo) => console.log("Hey Paulo, you clicked the button!!!");
 
-    button.addEventListener("click", sayHi);
+    // button.addEventListener("click", sayHi);
 
-    // Timer callback
-    setTimeout(() => {
-        console.log("I was called by setTimeout");
-    }, 1000);
+    // // Timer callback
+    // setTimeout(() => {
+    //     console.log("I was called by setTimeout");
+    // }, 1000);
 
 //  Methods!!!
 /*
