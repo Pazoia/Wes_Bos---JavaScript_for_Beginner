@@ -60,3 +60,18 @@ console.log("Ways to Declare Functions");
         return baby;
     };
  */
+
+// IIFE
+// Immediately Invoked Function Expression
+/*
+    (function () {
+        console.log("Running the Anon function");
+        return "You are cool";
+    })();
+
+    // with a parameter
+    (function (age) {
+        console.log("Running the Anon function");
+        return `You are cool and age ${age}`;
+    })(10);
+ */
