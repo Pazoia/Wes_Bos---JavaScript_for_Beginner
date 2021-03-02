@@ -6,10 +6,6 @@ const people = [
     { name: "Snickers", cool: false, country: "Dog Country" },
 ];
 
-people.forEach((person, index) => {
-    console.log(person.name);
-});
-
 // Console Methods
 /*
     console.info("I'm just an informative log");
@@ -51,8 +47,19 @@ people.forEach((person, index) => {
 */
 
 // Grabbing Elements
+/*
+    These are to be used in the console only:
+    $('p') - This will bring the first occurrence of the selector ('p') in the page
+    $$('p') - This will bring all the occurrences of the selector ('p') in the page
+*/
 
 // Breakpoints
+/*
+    people.forEach((person, index) => {
+        // debugger; // This will stop the code from running in the Devtools in the console.
+        console.log(person.name);
+    });
+*/
 
 // Scope
 
