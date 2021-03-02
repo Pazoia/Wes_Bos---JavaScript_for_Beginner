@@ -11,6 +11,25 @@ people.forEach((person, index) => {
 });
 
 // Console Methods
+console.info("I'm just an informative log");
+console.error("I'm displaying a message as an error into the console");
+console.warn("I'm displaying a message as an warning into the console");
+console.table(people);
+
+function add(a, b = 3) {
+    console.count("Running add");
+    return a + b;
+}
+
+function consoleGrouping() {
+    people.forEach((person, index) => {
+        console.groupCollapsed(`${person.name}`);
+        console.log(person.country);
+        console.log(person.cool);
+        console.log("Done!!!");
+        console.groupEnd(`${person.name}`);
+    });
+}
 
 // Callstack
 
