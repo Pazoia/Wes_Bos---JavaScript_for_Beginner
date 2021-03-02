@@ -75,3 +75,24 @@ console.log("Ways to Declare Functions");
         return `You are cool and age ${age}`;
     })(10);
  */
+
+/* eslint-disable */
+//  Methods!!!
+/*
+    const paulo = {
+        name: "Paulo Azoia",
+        // Method:
+        sayHi: function () {
+            console.log("Hey Paulo");
+            return "Hey Paulo";
+        },
+        // Short hand Method:
+        yellHi() {
+            console.log("HEY PAULO");
+        },
+        // Arrow function:
+        wisperHi: () => {
+            console.log("hii paulo, i'm a mouse");
+        }
+    };
+*/
