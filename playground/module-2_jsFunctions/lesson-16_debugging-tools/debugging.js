@@ -11,27 +11,44 @@ people.forEach((person, index) => {
 });
 
 // Console Methods
-console.info("I'm just an informative log");
-console.error("I'm displaying a message as an error into the console");
-console.warn("I'm displaying a message as an warning into the console");
-console.table(people);
+/*
+    console.info("I'm just an informative log");
+    console.error("I'm displaying a message as an error into the console");
+    console.warn("I'm displaying a message as an warning into the console");
+    console.table(people);
 
-function add(a, b = 3) {
-    console.count("Running add");
-    return a + b;
-}
+    function add(a, b = 3) {
+        console.count("Running add");
+        return a + b;
+    }
 
-function consoleGrouping() {
-    people.forEach((person, index) => {
-        console.groupCollapsed(`${person.name}`);
-        console.log(person.country);
-        console.log(person.cool);
-        console.log("Done!!!");
-        console.groupEnd(`${person.name}`);
-    });
-}
+    function consoleGrouping() {
+        people.forEach((person, index) => {
+            console.groupCollapsed(`${person.name}`);
+            console.log(person.country);
+            console.log(person.cool);
+            console.log("Done!!!");
+            console.groupEnd(`${person.name}`);
+        });
+    }
+*/
 
-// Callstack
+// Callstack, Stack trace
+/*
+    function doctorize(name) {
+        return `Dr. ${name}`;
+    }
+
+    function greet(name) {
+        // doesntExist(); // this was causing the error!
+        return `Hello ${name}`;
+    }
+
+    function go() {
+        const name = greet(doctorize("Wes"));
+        console.log(name);
+    }
+*/
 
 // Grabbing Elements
 
@@ -44,20 +61,6 @@ function consoleGrouping() {
 // Break On Attribute
 
 // Some Setup Code
-
-function doctorize(name) {
-    return `Dr. ${name}`;
-}
-
-function greet(name) {
-    doesntExist();
-    return `Hello ${name}`;
-}
-
-function go() {
-    const name = doctorize(greet("Wes"));
-    console.log(name);
-}
 
 const button = document.querySelector(".bigger");
 button.addEventListener("click", function (e) {
