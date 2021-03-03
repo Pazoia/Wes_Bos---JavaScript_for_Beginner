@@ -9,6 +9,7 @@ console.log("Hoisting");
     example:
 */
 
+/* eslint-disable */
 // Calling the function
 sayHi();
 
