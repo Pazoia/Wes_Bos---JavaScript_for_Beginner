@@ -33,13 +33,16 @@ console.log(sayHey("Paulo and Helen"));
 function createGame(gameName) {
     let score = 0;
     return function win() {
-        score++;
+        score += 1;
         return `Your game ${gameName} score is ${score}`;
     };
 }
 
 const hockeyGame = createGame("Hockey");
 const footballGame = createGame("Football");
+
+hockeyGame();
+footballGame();
 
 /*
     Closures are the ability for a child or inner function to
