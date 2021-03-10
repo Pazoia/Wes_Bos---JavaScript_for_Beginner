@@ -6,13 +6,13 @@
     "no-console": 0,
     "quotes": [
       "error",
-      "backtick"
+      "double"
     ],
     "prettier/prettier": [
       "error",
       {
         "trailingComma": "es5",
-        "backtick": true,
+        "doubleQuote": true,
         "printWidth": 120,
         "tabWidth": 4
       }
