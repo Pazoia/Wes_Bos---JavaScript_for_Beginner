@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>The DOM</title>
+    <link rel="stylesheet" href="../../../../CSS/base.css">
+</head>
+
+<body>
+
+
+    <img class="nice cool" src="https://source.unsplash.com/random/200x200" />
+
+    <div class="items">
+        <h1 class="item">I am an h1 element</h1>
+        <p class="item">I am a p element</p>
+        <ul>
+            <li class="item">Item 1</li>
+            <li class="item">Item 2</li>
+            <li class="item">Item 3</li>
+        </ul>
+    </div>
+
+    <style>
+        img {
+            transition: all 0.2s;
+        }
+
+        .round {
+            border-radius: 50%;
+            transform: rotate(1turn) scale(1.05);
+            box-shadow: 0 0 10px black;
+        }
+    </style>
+
+    <!-- 
+        The script tags should always be just before the body closing tags 
+        This is to ensure that all the html code is run and parsed to the
+        browser before trying to access any of the elements creating by html.
+    -->
+    <script src="./traversing-and-removing-nodes.js"></script>
+</body>
+
+</html>
