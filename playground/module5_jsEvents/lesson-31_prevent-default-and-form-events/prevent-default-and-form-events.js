@@ -5,6 +5,7 @@ const signupForm = document.querySelector("[name='signup']");
 
 function handleClick(event) {
     console.log("You Clicked it");
+    /* eslint-disable */
     const shouldChangePage = confirm("This website could be malicious! Do you wish to proceed?");
     if (!shouldChangePage) {
         event.preventDefault();
