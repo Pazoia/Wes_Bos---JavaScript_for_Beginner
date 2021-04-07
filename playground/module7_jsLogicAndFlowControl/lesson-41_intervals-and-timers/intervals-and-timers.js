@@ -16,6 +16,7 @@ console.log("Finishing");
 // it'll only run after the first 2 seconds
 // setTimeout(buzzer, 200);
 
+/*
 function setImmediateInterval(funcToRun, ms) {
     // right away call that function
     funcToRun();
@@ -23,7 +24,8 @@ function setImmediateInterval(funcToRun, ms) {
     return setInterval(funcToRun, ms);
 }
 
-// setImmediateInterval(buzzer, 2000);
+setImmediateInterval(buzzer, 2000);
+*/
 
 function destroy() {
     document.body.innerHTML = "<p>DESTROYED</p>";
