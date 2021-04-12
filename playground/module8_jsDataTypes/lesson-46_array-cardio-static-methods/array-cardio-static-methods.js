@@ -40,54 +40,55 @@ const feedback = [
 ];
 
 /*
-  Static Methods
+    Static Methods
 */
 
 // Array.of();
+console.group("Static Methods");
+console.groupCollapsed("Array.of()");
+console.log("With Array.of() a new array is created with the data in the parentesis");
+console.log(Array.of("Paulo", "Helen"));
+console.log(Array.of(..."Paulo"));
+console.groupEnd("Array.of()");
 
 // Make a function that creates a range from x to y with Array.from();
+console.groupCollapsed("Array.from");
+console.log("Array.from({ length: 10 }) creates an array with a given length");
+function createRange(start, end) {
+    /* eslint-disable-next-line */
+    const range = Array.from({ length: end - start + 1 },
+        function (item, index) {
+        return index + start;
+    });
+    return range;
+}
+console.log(createRange(3, 7));
+console.groupEnd("Array.from");
 
 // Check if the last array you created is really an array with Array.isArray();
+console.groupCollapsed("Array.isArray()");
+console.log("Array.isArray() checks if an array is a true array");
+const myRange = createRange(3, 7);
+console.log(`typeof myRange array: ${typeof myRange}`);
+console.log(`Array.isArray(myRange): ${Array.isArray(myRange)}`);
+console.groupEnd("Array.isArray()");
 
 // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
+console.groupCollapsed("Object.entries(), Object.keys(), Object.values()");
+console.log("Object.entries():");
+console.log(Object.entries(meats));
+console.log("Object.keys():");
+console.log(Object.keys(meats));
+console.log("Object.values():");
+console.log(Object.values(meats));
 
-/*
-  Instance Methods
-*/
+const ul = document.querySelector(".meats");
+Object.entries(meats).forEach((entry) => {
+    const [meat, qty] = entry;
+    console.log(meat, qty);
+    const li = `<li>${meat} ${qty}</li>`;
+    ul.insertAdjacentHTML("beforeend", li);
+});
+console.groupEnd("Object.entries(), Object.keys(), Object.values()");
 
-// Display all bun types with " or " - use join()
-
-// We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
-
-// take the last item off toppings with pop()
-// add it back with push()
-// take the first item off toppings with shift()
-// add it back in with unshift()
-// Do the last four,but immutable (with spreads and new variables)
-
-// Make a copy of the toppings array with slice()
-// Make a copy of the toppings array with a spread
-// take out items 3 to 5 of your new toppings array with splice()
-// find the index of Avocado with indexOf() / lastIndexOf()
-// Check if hot sauce is in the toppings with includes()
-// add it if it's not
-// flip those toppings around with reverse()
-
-/*
-  Callback Methods
-*/
-
-// find the first rating that talks about a burger with find()
-// find all ratings that are above 2 with filter()
-// find all ratings that talk about a burger with filter()
-// Remove the one star rating however you like!
-
-// check if there is at least 5 of one type of meat with some()
-// make sure we have at least 3 of every meat with every()
-// sort the toppings alphabetically with sort()
-// sort the order totals from most expensive to least with .sort()
-// Sort the prices with sort()
-
-/*
-  Looping Methods (next)
-*/
+console.groupEnd("Static Methods");
