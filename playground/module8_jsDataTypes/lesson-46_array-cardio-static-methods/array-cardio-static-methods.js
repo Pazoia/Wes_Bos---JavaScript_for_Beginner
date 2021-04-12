@@ -1,5 +1,5 @@
 console.log("Working with arrays - Static Methods");
-
+/* eslint-disable */
 const toppings = [
     "Mushrooms ",
     "Tomatoes",
