@@ -123,3 +123,61 @@ const inventory = [
     { type: "socks", price: 542 },
     { type: "pants", price: 123 },
 ];
+
+function addArms(face) {
+    return `💪🏽 ${face} 💪🏽`;
+}
+console.log(addArms("😎"));
+
+const toys = faces.map(addArms);
+console.table(toys);
+
+const familyName = "Azoia";
+function addFamilyName(name) {
+    return `${name} ${familyName}`;
+}
+
+function capitalize(word) {
+    return `${word[0].toUpperCase()}${word.slice(1)}`;
+}
+
+const fullNames = ["paulo", "helen", "pumpkin"]
+    .map(capitalize)
+    .map(addFamilyName);
+
+console.table(fullNames);
+
+const orderTotalsWithTax = orderTotals.map(total => total + (total * 1.13));
+console.log(orderTotals);
+console.log(orderTotalsWithTax);
+
+// function attachBody(face, body) {
+//     return `
+//              ${face}
+//            ${body.repeat(3)}
+//           ${Array(3).fill(body).join(" ")}
+//           👇🏽${body.repeat(2)}👇🏽  
+//            ${Array(2).fill(body).join("  ")}
+//            ${Array(2).fill(body).join("  ")}
+//            👢   👢
+//     `
+// }
+
+// faces.map(face => attachBody(face, "🍟")).forEach(body => console.log(body));
+
+const cleanPeople = people.map(function(person) {
+    // get their birthday
+    // Timestamp
+    const birthday = new Date(person.birthday);
+    // now Timestamp
+    const now = Date.now();
+    // figure out how old they are
+    const age = Math.floor((now - birthday) / 31536000000);
+    // return their full name and bday in an object
+    return {
+        age,
+        name: `${person.names.first} ${person.names.last}`,
+    }
+});
+
+console.table(cleanPeople);
