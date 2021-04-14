@@ -43,18 +43,119 @@ const feedback = [
 /*
     Callback Methods
 */
+console.group("Callback Methods");
+    // find the first rating that talks about a burger with find()
+    console.groupCollapsed(".find()");
+        /* 
+        The functions below are very tight to the word being searched
+        making them not very flexible.
+        */
 
-// find the first rating that talks about a burger with find()
-// find all ratings that are above 2 with filter()
-// find all ratings that talk about a burger with filter()
-// Remove the one star rating however you like!
+        function findBurgRating(singleFeedback) {
+            return singleFeedback.comment.includes("burg");
+        }
 
-// check if there is at least 5 of one type of meat with some()
-// make sure we have at least 3 of every meat with every()
-// sort the toppings alphabetically with sort()
-// sort the order totals from most expensive to least with .sort()
-// Sort the prices with sort()
+        function findSmoothieRating(singleFeedback) {
+            return singleFeedback.comment.includes("Smoothie");
+        }
 
+        const burgRating = feedback.find(findBurgRating);
+        const SmoothieRating = feedback.find(findSmoothieRating);
+
+        /* 
+        Creating a function that will use the given words to 
+        search for.
+        */
+
+        function findByWord(word) {
+            return function (singleFeedback) {
+                return singleFeedback.comment.toLowerCase().includes(word);
+            }
+        }
+
+        const burgRating2 = feedback.find(findByWord("burg"));
+        const smoothieRating2 = feedback.find(findByWord("Smoothie"));
+        const serviceRating2 = feedback.find(findByWord("Service"));
+
+        console.log(burgRating2);
+        console.log(smoothieRating2);
+        console.log(serviceRating2);
+    console.groupEnd(".find()");
+
+    // find all ratings that are above 2 with filter()
+    console.groupCollapsed(".filter(min rating)");
+        /*
+            Implicit Return
+        */
+        const goodReviews1 = feedback.filter(singleFeedback => singleFeedback.rating >= 2);
+        console.table(goodReviews1);
+        /*
+            More flexible way of doing it
+        */
+        function filterByMinRating(minRating) {
+            return function(singleFeedback) {
+                return singleFeedback.rating >= minRating;
+            }
+        }
+        const goodReviews2 = feedback.filter(filterByMinRating(2));
+        console.table(goodReviews2);
+    console.groupEnd(".filter(min rating)");
+
+    // find all ratings that talk about a burger with filter()
+    console.groupCollapsed(".filter(all ratings with burguer)");
+        const feedbackAboutBurguer = feedback.filter(findByWord("burg"));
+        console.table(feedbackAboutBurguer);
+    console.groupEnd(".filter(all ratings with burguer)");
+
+    // Remove the one star rating however you like!
+    console.groupCollapsed("Removing ratings of 1");
+        const legitRatings = feedback.filter(single => single.rating !== 1);
+        console.table(legitRatings);
+    console.groupEnd("Removing ratings of 1");
+
+    // check if there is at least 5 of one type of meat with some()
+    console.groupCollapsed(".some()");
+        const isThereEnoughOfAtLeastOneMeat = Object.values(meats).some(meatValue => meatValue >= 5);
+        console.log(isThereEnoughOfAtLeastOneMeat);
+    console.groupEnd(".some()");
+
+    // make sure we have at least 3 of every meat with every()
+    console.groupCollapsed(".every()");
+        const isThereEnoughOfMeats = Object.values(meats).every(meatValue => meatValue >= 3);
+        console.log(isThereEnoughOfMeats);
+    console.groupEnd(".every()");
+
+    // sort the toppings alphabetically with sort()
+    console.groupCollapsed(".sort(toppings)");
+        const numbers = [1, 2, 100, 3, 200, 400, 155];
+        console.log("Unsorted array:");
+        console.log(numbers);
+        const numbersSorted = numbers.sort((a, b) => a - b);
+        console.log("Sorted array:");
+        console.log(numbersSorted);
+
+        console.log(toppings.sort());
+    console.groupEnd(".sort(toppings)");
+
+    // sort the order totals from most expensive to least with .sort()
+    console.groupCollapsed(".sort(order totals)");
+        function numbersSort(a, b) {
+            return a - b;
+        }
+        const orderTotalsSorted = orderTotals.sort(numbersSort);
+        console.log(orderTotalsSorted);
+    console.groupEnd(".sort(order totals)");
+
+    // Sort the prices with sort()
+    console.groupCollapsed(".sort(prices object)");
+        const productsSortedByPrice = Object.entries(prices).sort(function(a, b) {
+            const aPrice = a[1];
+            const bPrice = b[1];
+            return aPrice - bPrice;
+        });
+        console.table(Object.fromEntries(productsSortedByPrice));
+    console.groupEnd(".sort(prices object)");
+console.groupEnd("Callback Methods");
 /*
-    Looping Methods (next)
+Looping Methods (next)
 */
