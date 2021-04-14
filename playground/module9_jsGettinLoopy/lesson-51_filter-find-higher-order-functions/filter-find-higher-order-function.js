@@ -124,3 +124,57 @@ const inventory = [
     { type: "pants", price: 123 },
 ];
 
+const cleanPeople = people.map(function(person) {
+    // get their birthday
+    // Timestamp
+    const birthday = new Date(person.birthday);
+    // now Timestamp
+    const now = Date.now();
+    // figure out how old they are
+    const age = Math.floor((now - birthday) / 31536000000);
+    // return their full name and bday in an object
+    return {
+        age,
+        name: `${person.names.first} ${person.names.last}`,
+    }
+});
+
+console.table(cleanPeople);
+
+// Implicit return:
+const over40 = cleanPeople.filter((person) => person.age > 40);
+console.table(over40);
+
+const over50 = cleanPeople.find((person) => person.age > 50);
+console.log(`${over50.name} is ${over50.age} years old.`);
+
+/*
+    Higher order function
+*/
+function finById(id) {
+    return function isStudent(student) {
+        return student.id === id;
+    }
+}
+
+const student = students.find(finById("565a"));
+console.log(`This is student: 
+        ${student.first_name} ${student.last_name}, 
+        student id: ${student.id}`);
+        
+        
+        function findByProp(prop, propWeAreLookingFor) {
+            return function isStudent(student) {
+                return student[prop] === propWeAreLookingFor;
+            }
+        }
+        
+const student2 = students.find(findByProp("id", "f396"));
+console.log(`This is student: 
+        ${student2.first_name} ${student2.last_name}, 
+        student id: ${student2.id}`);
+
+const student3 = students.find(findByProp("first_name", "Micki"));
+console.log(`This is student: 
+        ${student3.first_name} ${student3.last_name}, 
+        student id: ${student3.id}`);
