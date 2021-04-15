@@ -163,11 +163,11 @@ console.log(`This is student:
         student id: ${student.id}`);
         
         
-        function findByProp(prop, propWeAreLookingFor) {
-            return function isStudent(student) {
-                return student[prop] === propWeAreLookingFor;
-            }
-        }
+function findByProp(prop, propWeAreLookingFor) {
+    return function isStudent(student) {
+        return student[prop] === propWeAreLookingFor;
+    }
+}
         
 const student2 = students.find(findByProp("id", "f396"));
 console.log(`This is student: 
