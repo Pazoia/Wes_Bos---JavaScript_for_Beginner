@@ -1,5 +1,7 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
+
 console.log("Working with for ; for of ; for in ; while loops");
-/* eslint-disable */
 
 const numbers = [2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6];
 
@@ -8,7 +10,6 @@ const myName = "Paulo Azoia";
 // For
 console.groupCollapsed("For loop");
 
-// eslint-disable-next-line no-plusplus
 for (let i = 0; i < 10; i++) {
     console.log(myName);
     console.log(`I printed ${i + 1} times`);
@@ -38,12 +39,12 @@ console.groupEnd("For in loop");
 console.groupCollapsed("While loop");
 
 let cool = true;
-let i = 1;
+let j = 1;
 
 while (cool === true) {
     console.log("You are cool");
-    i++;
-    if (i > 100) {
+    j++;
+    if (j > 100) {
         cool = false;
     }
 }
