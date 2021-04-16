@@ -2,9 +2,9 @@
   "name": "pixelated-face",
   "version": "1.0.0",
   "description": "",
-  "main": "pixelated-face.js",
+  "main": "face-detection-and-censorship.js",
   "scripts": {
-    "start": "parcel face.html"
+    "start": "parcel face-detection-and-censorship.html"
   },
   "author": "",
   "license": "ISC",
