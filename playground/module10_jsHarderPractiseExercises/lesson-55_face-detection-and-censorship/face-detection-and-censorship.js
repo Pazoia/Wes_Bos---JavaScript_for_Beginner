@@ -6,8 +6,20 @@ const ctx = canvas.getContext("2d");
 const faceCanvas = document.querySelector(".face");
 const faceCtx = faceCanvas.getContext("2d");
 const faceDetector = new window.FaceDetector();
-const SIZE = 10;
-const SCALE = 1.35;
+const optionsInputs = document.querySelectorAll(".controls input[type='range']");
+
+const options = {
+    SIZE: 10,
+    SCALE: 1.35,
+};
+
+function handleOption(event) {
+    console.log(event.currentTarget.value);
+    const { value, name } = event.currentTarget;
+    options[name] = parseFloat(value);
+}
+
+optionsInputs.forEach((input) => input.addEventListener("input", handleOption));
 
 // Write a function that will populate the users video
 
@@ -46,20 +58,20 @@ function censor({ boundingBox: face }) {
         // 4 draw args
         face.x,
         face.y,
-        SIZE,
-        SIZE
+        options.SIZE,
+        options.SIZE
     );
     // draw the small face back on, but scale up
-    const width = face.width * SCALE;
-    const height = face.height * SCALE;
+    const width = face.width * options.SCALE;
+    const height = face.height * options.SCALE;
     faceCtx.drawImage(
         // source
         faceCanvas,
         // where do we start the source pull from?
         face.x,
         face.y,
-        SIZE,
-        SIZE,
+        options.SIZE,
+        options.SIZE,
         // drawing args
         face.x - (width - face.width) / 2,
         face.y - (height - face.height) / 2,
