@@ -6,6 +6,21 @@ const list = document.querySelector(".list");
 // We need an array to hold our state
 const items = [];
 
+function displayItems() {
+    console.log(items);
+    const html = items
+        .map(
+            (item) =>
+                `<li class="shopping-item">
+                <input type="checkbox">
+                <span class="itemName">${item.name}</span>
+                <button aria-label="Remove ${item.name}">&times;</button>
+            </li>`
+        )
+        .join("");
+    list.innerHTML = html;
+}
+
 function handleSubmit(e) {
     e.preventDefault();
     console.log("Submited!!!");
@@ -17,6 +32,10 @@ function handleSubmit(e) {
     };
     items.push(item);
     e.target.reset();
+    // Fire off a custom event that will tell anyone else
+    // who cares that the items have been updated!
+    list.dispatchEvent(new CustomEvent("itemsUpdated"));
 }
 
 shoppingForm.addEventListener("submit", handleSubmit);
+list.addEventListener("itemsUpdated", displayItems);
