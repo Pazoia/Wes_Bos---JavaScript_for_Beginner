@@ -6,10 +6,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Sarcastic Text Generator</title>
     <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <h1>Sarcastic Text Generator</h1>
+
+    <div class="typer">
+        <label for="sarcastic">
+            <input type="radio" value="sarcastic" id="sarcastic" name="filter" checked>
+            Sarcastic
+        </label>
+        <label for="funky">
+            <input type="radio" value="funky" id="funky" name="filter">
+            Funky
+        </label>
+        <label for="unable">
+            <input type="radio" value="unable" id="unable" name="filter">
+            Unable to Structure a Sentence
+        </label>
+        <textarea name="text">
+            Type your text here!!!
+        </textarea>
+        <p class="result"></p>
+    </div>
 
     <script src="./sarcastic-text-generator.js"></script>
 </body>
