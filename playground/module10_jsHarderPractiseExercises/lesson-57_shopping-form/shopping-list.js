@@ -7,7 +7,6 @@ const list = document.querySelector(".list");
 const items = [];
 
 function displayItems() {
-    console.log(items);
     const html = items
         .map(
             (item) =>
@@ -23,7 +22,6 @@ function displayItems() {
 
 function handleSubmit(e) {
     e.preventDefault();
-    console.log("Submited!!!");
     const name = e.currentTarget.item.value;
     const item = {
         name,
@@ -37,5 +35,21 @@ function handleSubmit(e) {
     list.dispatchEvent(new CustomEvent("itemsUpdated"));
 }
 
+function mirrorToLocalStorage() {
+    localStorage.setItem("items", JSON.stringify(items));
+}
+
+function restoreFromLocalStorage() {
+    // pull the items from local storage
+    const lsItems = JSON.parse(localStorage.getItem("items"));
+    if (lsItems.length) {
+        items.push(...lsItems);
+        list.dispatchEvent(new CustomEvent("itemsUpdated"));
+    }
+}
+
 shoppingForm.addEventListener("submit", handleSubmit);
 list.addEventListener("itemsUpdated", displayItems);
+list.addEventListener("itemsUpdated", mirrorToLocalStorage);
+
+restoreFromLocalStorage();
