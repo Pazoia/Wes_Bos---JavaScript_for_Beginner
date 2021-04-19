@@ -1,0 +1,17 @@
+{
+  "name": "shopping-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shopping-form.js",
+  "scripts": {
+    "start": "parcel shopping-form.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "dependencies": {
+    "parcel": "^2.0.0-alpha.2.1"
+  }
+}
