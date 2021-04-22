@@ -78,10 +78,20 @@ function Gallery(gallery) {
             showImage(e.currentTarget)
     ));
 
+    // Loop over each image, open modal with Enter key
+    images.forEach((image) => {
+        // attach an event listener to each image
+        image.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                showImage(e.currentTarget);
+            }
+        });
+    });
+
     modal.addEventListener("click", handleClickOutside);
 }
 
 // Use it on the page
 
-const gallery1 = Gallery(document.querySelector(".gallery1"));
-const gallery2 = Gallery(document.querySelector(".gallery2"));
+Gallery(document.querySelector(".gallery1"));
+Gallery(document.querySelector(".gallery2"));
