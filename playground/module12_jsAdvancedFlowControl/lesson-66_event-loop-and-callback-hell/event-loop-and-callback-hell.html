@@ -9,7 +9,38 @@
 </head>
 
 <body>
+    <style>
+        .go {
+            margin: 5rem;
+            background: white;
+            padding: 5rem;
+            width: 25rem;
+            height: 25rem;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .go.circle {
+            border-radius: 50%;
+        }
+
+        .go.red {
+            background: red;
+        }
+
+        .go.purple {
+            background: purple;
+            color: white;
+        }
+
+        .go.fadeOut {
+            opacity: 0;
+        }
+    </style>
+
     <h1>Event Loop and Callback Hell</h1>
+
+    <div class="go">Click Me</div>
 
     <script src="./event-loop-and-callback-hell.js"></script>
 </body>
