@@ -1,16 +1,25 @@
+/* eslint-disable */
 console.log("Promises - Async Await");
 
+function wait(ms = 0) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}
+
+async function go() {
+    console.log("Starting");
+    await wait(2000);
+    console.log("Running");
+    await wait(2000);
+    console.log("Ending");
+}
+
+go();
+
 function makePizza(pizzaName, toppings = []) {
+    // eslint-disable-next-line no-unused-vars
     return new Promise(function (resolve, reject) {
-        // Reject if people try adding pineaple
-        if (toppings.includes("pineaple")) {
-            reject(
-                new Error(`
-                Sorry, pineaple is not an option!
-                🛑 🍍 🛑
-                `)
-            );
-        }
         // Wait for the pizza to cook depending on the number of toppings:
         // prettier-ignore
         const amountOfTimeToBake = 500 + (toppings.length * 200);
@@ -24,45 +33,53 @@ function makePizza(pizzaName, toppings = []) {
                 Enjoy your pizza!
             `);
         }, amountOfTimeToBake);
+        // If something went wrong, we can reject this promise
     });
 }
 
-function handleError(err) {
-    console.log("Something went wrong!");
-    console.log(err);
+async function makeDinner() {
+    const seaFoodPizzaPromise = makePizza("sea food", ["prawns", "tuna", "anchoves"]);
+    const pepperoniPizzaPromise = makePizza("pepperoni", ["pepperoni"]);
+    const margaritaPizzaPromise = makePizza("margarita");
+
+    const pizzas = await Promise.all([seaFoodPizzaPromise, pepperoniPizzaPromise, margaritaPizzaPromise]);
+
+    pizzas.forEach(pizza => {
+        console.log(pizza);
+    });
 }
 
-makePizza("pineaple", ["tuna", "pineaple"])
-    .then((pizza) => {
-        console.log(pizza);
-    })
-    .catch(handleError);
+makeDinner();
 
 /*
-    Returning resolved pizzas sequentially
+    async - await works on any kind of function
+    as shown below
 */
-// Returning a pepperoni pizza promise
-makePizza("pepperoni", ["pepperoni", "olives"])
-    // returning the pepperoni pizza when it's ready
-    .then(function (pizza) {
-        console.log(pizza);
-        // Returning bbq chicken pizza promise
-        return makePizza("bbq chicken", ["bbq sauce", "chicken", "chorizo"]);
-    })
-    // Returning the bbq chicken pizza when it's ready
-    .then(function (pizza) {
-        console.log(pizza);
-        // Returning sea food pizza promise
-        return makePizza("sea food", ["tuna", "king prawns", "onion", "olives"]);
-    })
-    // Returning the sea food pizza when it's ready
-    .then(function (pizza) {
-        console.log(pizza);
-        // Returning an empty pizza promise
-        return makePizza("margarita");
-    })
-    // Returning the empty pizza when it's ready
-    .then(function (pizza) {
-        console.log(pizza);
-        console.log("All Done! That was your last pizza.");
-    });
+
+// Function declaration
+    // async function fd() {
+    //     await wait(2000);
+    // }
+
+// Arrow function
+    // const arrowFn = async () => {}
+
+// Call back function
+    // window.addEventListener("click", async function () {
+    //     await wait(2000);
+    // });
+
+// const person = {
+//     // method
+//     sayHi: function () {
+
+//     },
+//     // method shorthand
+//     async sayHello() {
+
+//     },
+//     // function property
+//     sayHey: async () => {
+
+//     }
+// }
