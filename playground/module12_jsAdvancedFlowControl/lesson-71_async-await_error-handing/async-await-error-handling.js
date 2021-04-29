@@ -1,9 +1,4 @@
 console.log("Promises - Async Await Error handling");
-function wait(ms = 0) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-    });
-}
 
 function makePizza(pizzaName, toppings = []) {
     // eslint-disable-next-line no-unused-vars
