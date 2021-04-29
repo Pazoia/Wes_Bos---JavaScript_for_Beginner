@@ -1,8 +1,16 @@
+/* eslint-disable prettier/prettier */
 console.log("Working with Promises - Error Handling");
 
 function makePizza(pizzaName, toppings = []) {
     // eslint-disable-next-line no-unused-vars
     return new Promise(function (resolve, reject) {
+        // Reject if people try adding pineaple
+        if (toppings.includes("pineaple")) {
+            reject(new Error(`
+                Sorry, pineaple is not an option!
+                🛑 🍍 🛑
+                `));
+        }
         // Wait for the pizza to cook depending on the number of toppings:
         // prettier-ignore
         const amountOfTimeToBake = 500 + (toppings.length * 200);
@@ -19,6 +27,31 @@ function makePizza(pizzaName, toppings = []) {
         // If something went wrong, we can reject this promise
     });
 }
+
+function handleError(err) {
+    console.log("Something went wrong!");
+    console.log(err);
+}
+
+makePizza("pineaple", ["tuna", "pineaple"])
+    .then((pizza) => {
+        console.log(pizza);
+    })
+    .catch(handleError)
+;
+
+/*
+    Using Promise.allSettled() to catch the errors
+    but still deliver the ones that are good
+*/
+const p1 = makePizza("pepperoni", ["pepperoni"]);
+const p2 = makePizza("pineaple", ["pineaple"]);
+
+const allPizzasPromise2 = Promise.allSettled([p1, p2]);
+
+allPizzasPromise2.then(results => {
+    console.log(results);
+});
 
 const pepperoniPizzaPromise = makePizza("pepperoni", ["pepperoni", "olives"]);
 const bbqChickenPizzaPromise = makePizza("bbq chicken", ["bbq sauce", "chicken", "chorizo"]);
