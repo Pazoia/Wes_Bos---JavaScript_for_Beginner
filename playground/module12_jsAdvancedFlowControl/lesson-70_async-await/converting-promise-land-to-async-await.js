@@ -87,3 +87,38 @@ function animate(e) {
 }
 
 go1.addEventListener("click", animate);
+
+/*
+    Converting Promise Land to Async await
+*/
+
+const go2 = document.querySelector(".go2");
+
+async function animate2(e) {
+    const el = e.currentTarget;
+    // 1. Change the text to Go when clicked
+    el.textContent = "GO";
+
+    // 2. Make it a circle after 2s
+    await wait(2000);
+    el.classList.add("circle");
+
+    // 3. Make it red after 0.5s
+    await wait(500);
+    el.classList.add("red");
+
+    // 4. Make it square after 0.25s
+    await wait(250);
+    el.classList.remove("circle");
+
+    // 5. Make it purple after 0.3s
+    await wait(300);
+    el.classList.remove("red");
+    el.classList.add("purple");
+
+    // 6. Fade out after 0.5s
+    await wait(500);
+    el.classList.add("fadeOut");
+}
+
+go2.addEventListener("click", animate2);
