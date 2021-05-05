@@ -33,3 +33,9 @@
     --scale: 1;
 }
   
+li {
+    list-style: none;
+    font-weight: bold;
+    color: white;
+    margin-left: 30px;
+}

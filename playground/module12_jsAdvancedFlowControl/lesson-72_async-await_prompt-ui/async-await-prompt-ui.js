@@ -71,19 +71,21 @@ function ask(options) {
 }
 
 // select all the buttons that have a question
-async function askQuestion(e) {
-    const button = e.currentTarget;
-    const cancel = "cancel" in button.dataset;
+/*
+    // async function askQuestion(e) {
+    //     const button = e.currentTarget;
+    //     const cancel = "cancel" in button.dataset;
 
-    // eslint-disable-next-line no-unused-vars
-    const answer = await ask({
-        title: button.dataset.question,
-        cancel,
-    });
-}
+    //     // eslint-disable-next-line no-unused-vars
+    //     const answer = await ask({
+    //         title: button.dataset.question,
+    //         cancel,
+    //     });
+    // }
 
-const buttons = document.querySelectorAll("[data-question]");
-buttons.forEach((button) => button.addEventListener("click", askQuestion));
+    // const buttons = document.querySelectorAll("[data-question]");
+    // buttons.forEach((button) => button.addEventListener("click", askQuestion));
+*/
 
 const questions = [
     { title: "What is your name?" },
@@ -106,21 +108,17 @@ async function asyncMap(array, callback) {
 
 async function go() {
     const answers = await asyncMap(questions, ask);
-    const ul = document.createElement("ul");
-    ul.insertAdjacentHTML(
-        "afterbegin",
-        `${answers.forEach((answer) => {
-            const li = document.createElement("li");
-            li.textContent = answer;
-            ul.appendChild(li);
-        })}
-        `
-    );
-    document.body.appendChild(ul);
+    answers.forEach((answer) => {
+        const li = document.createElement("li");
+        li.textContent = answer;
+        document.body.appendChild(li);
+    });
     console.log(answers);
 }
 
-go();
+const button = document.querySelector(".askMe");
+
+button.addEventListener("click", go);
 
 /*
     Below function is directed at the questions array
