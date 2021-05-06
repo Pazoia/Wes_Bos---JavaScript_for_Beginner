@@ -4,3 +4,4 @@ haters/
 .cache/
 dist/
 .parcel-cache/
+keep-safe.js
