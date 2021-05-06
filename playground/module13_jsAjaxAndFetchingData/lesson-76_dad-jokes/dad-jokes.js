@@ -20,8 +20,27 @@ async function fetchJoke() {
             Accept: "application/json",
         },
     });
-    const joke = await response.json();
-    console.log(joke);
+    const data = await response.json();
+    return data;
 }
 
-fetchJoke();
+function randomItemFromArray(arr, not) {
+    const item = arr[Math.floor(Math.random() * arr.length)];
+    if (item === not) {
+        console.log("Same item used last time, look again!");
+        return randomItemFromArray(arr, not);
+    }
+    return item;
+}
+
+async function handleClick() {
+    const { joke } = await fetchJoke();
+    jokeHolder.textContent = joke;
+    // eslint-disable-next-line prettier/prettier
+    jokeButton.textContent = randomItemFromArray(
+        buttonText,
+        jokeButton.textContent,
+    );
+}
+
+jokeButton.addEventListener("click", handleClick);
