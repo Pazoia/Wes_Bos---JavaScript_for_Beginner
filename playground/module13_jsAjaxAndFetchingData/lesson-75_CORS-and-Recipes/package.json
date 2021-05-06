@@ -1,0 +1,17 @@
+{
+  "name": "dogrecipes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cors-and-recipes.js",
+  "scripts": {
+    "start": "parcel cors-and-recipes.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "browserslist": [
+    "last 1 chrome versions"
+  ]
+}
