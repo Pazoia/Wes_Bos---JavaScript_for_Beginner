@@ -1,8 +1,8 @@
 {
-  "name": "dadjokesparcelbundler",
+  "name": "dadjokesbundler",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "dist/index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
@@ -10,9 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
-  },
-  "browserslist": [
-    "last 1 chrome versions"
-  ]
+    "parcel": "^2.0.0-beta.2"
+  }
 }
