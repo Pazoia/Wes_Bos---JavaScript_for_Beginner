@@ -64,6 +64,8 @@ async function go() {
     console.log("Ending");
 }
 
+go();
+
 /*
     Working with lodash
 */
