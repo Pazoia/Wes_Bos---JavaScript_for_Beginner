@@ -1,0 +1,17 @@
+{
+  "name": "colorsgame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "colors.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserlist": [
+    "last 1 chrome versions"
+  ],
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.3.1"
+  }
+}
