@@ -1,9 +1,13 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-param-reassign */
 export function hslToRgb(h, s, l) {
     let r;
     let g;
     let b;
 
+    // eslint-disable-next-line eqeqeq
     if (s == 0) {
+        // eslint-disable-next-line no-multi-assign
         r = g = b = l; // achromatic
     } else {
         const hue2rgb = function hue2rgb(p, q, t) {
