@@ -1,6 +1,3 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-multi-assign */
 export function hslToRgb(h, s, l) {
     let r;
     let g;
